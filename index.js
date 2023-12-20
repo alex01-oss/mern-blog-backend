@@ -7,7 +7,7 @@ import { userController, postController, commentController } from './controllers
 import { checkAuth, handleValidationErrors } from './utils/index.js'
 
 mongoose
-  .connect('mongodb+srv://alexademochko:gaysex666@cluster0.t8wybbx.mongodb.net/blog?retryWrites=true&w=majority')
+  .connect(process.env.MONGODB_URI)
   .then(() => console.log('db ok'))
   .catch((err) => console.log('db error', err));
 
@@ -50,7 +50,7 @@ app.post('/posts/:id/comments', checkAuth, commentController.addComment);
 app.delete('/comments/:id', checkAuth, commentController.removeComment);
 app.patch('/comments/:id', checkAuth, commentController.updateComment);
 
-app.listen(4444, (err) => {
+app.listen(process.env.PORT || 4444, (err) => {
   if (err) {
     console.log(err);
   }
