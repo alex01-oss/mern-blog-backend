@@ -7,10 +7,13 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node index.js",
     "start:dev": "nodemon index.js",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build" 
+    "deploy": "gh-pages -d build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "author": "",
   "license": "ISC",
