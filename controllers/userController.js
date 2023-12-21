@@ -7,7 +7,7 @@ export const register = async (req, res) => {
     const { fullName, email, password } = req.body;
     const salt = await bcrypt.genSalt(10);
     const hash = await bcrypt.hash(password, salt);
-    const avatarUrl = `http://localhost:4444${req.body.avatarUrl}`;
+    const avatarUrl = `${process.env.REACT_APP_API_URL}${req.body.avatarUrl}`;
 
     const doc = new userModel({
       fullName,
